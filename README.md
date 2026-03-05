@@ -1,81 +1,84 @@
-# Face Recognition Attendance System
+# 📸 Face Recognition Attendance System Pro
 
-A real-time face recognition-based attendance system developed with Python, OpenCV, and the `face_recognition` library. This system detects and identifies faces through a webcam, matching them against known images, and automatically logs attendance into a CSV file.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" />
+  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+</p>
 
-## Features
+A professional, real-time face recognition attendance system featuring a modern dark-themed Desktop GUI, live statistics, and automated PDF reporting. Optimized for **Visual Studio Code** users.
 
-- **Real-time Face Detection:** Efficiently detects faces in a live video stream.
-- **Accurate Recognition:** Uses deep learning-based face encodings for high-accuracy identification.
-- **Automated Attendance Logging:** Records the name and timestamp of recognized individuals.
-- **CSV Data Export:** Attendance data is saved daily in `.csv` format for easy integration and analysis.
-- **User-Friendly Interface:** Provides visual feedback (on-screen labels) during the recognition process.
+## 🚀 Features
 
-## Prerequisites
+- **🖥️ Modern GUI Dashboard:** Built with `CustomTkinter` for a sleek, dark-mode professional interface.
+- **🔍 Real-time Recognition:** High-accuracy face detection and identification using deep learning encodings.
+- **📊 Live Attendance Stats:** Dynamic sidebar showing Total Registered, Present, and Absent counts.
+- **📄 Automated PDF Export:** Generate professional attendance reports with a single click.
+- **🎨 Sleek Overlays:** Visual bounding boxes and status labels integrated into the live video feed.
+- **🧩 Modular Architecture:** Clean separation between UI logic and face recognition processing.
 
-Before running the project, ensure you have the following installed:
+## 🛠️ Prerequisites
 
-- **Python 3.x**
-- **CMake** (required for `dlib` installation)
-- **C++ Compiler** (Visual Studio with C++ development tools on Windows, or GCC/G++ on Linux/macOS)
+- **🐍 Python 3.11+**
+- **💻 Visual Studio Code** (Recommended Editor)
 
-## Installation
+## 📦 Installation (Optimized for Windows/VS Code)
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/your-username/Face-Recognition-Attendance-System.git
-    cd Face-Recognition-Attendance-System
-    ```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/Face-Recognition-Attendance-System.git
+   cd Face-Recognition-Attendance-System
+   ```
 
-2.  **Install Required Libraries:**
-    Install the core dependencies using `pip`:
-    ```bash
-    pip install cmake
-    pip install face_recognition
-    pip install opencv-python
-    pip install numpy
-    ```
+2. **Install Core Libraries:**
+   ```bash
+   pip install opencv-python numpy Pillow customtkinter fpdf
+   ```
 
-3.  **Prepare Reference Images:**
-    Place the `.jpg` or `.png` images of individuals you wish to recognize in the `faces/` directory. Ensure the filename corresponds to the person's name (e.g., `shejan.jpg`, `tarikul.jpg`).
+3. **Install Face Recognition (The Easy Way):**
+   To avoid downloading heavy C++ Build Tools, use the pre-compiled version of dlib:
+   ```bash
+   pip install dlib-bin
+   pip install face_recognition --no-deps
+   pip install face_recognition_models
+   ```
 
-## Usage
+## 🎮 Usage
 
-1.  **Run the System:**
-    ```bash
-    python main.py
-    ```
+1. **Prepare Data:**
+   Place reference images in the `faces/` directory (e.g., `shejan.jpg`, `tarikul.jpg`).
 
-2.  **Operation:**
-    - The webcam will open and begin scanning for faces.
-    - Recognized individuals will see their name displayed with "Present" on the screen.
-    - Their attendance (Name, Time) will be recorded in a CSV file named `DD-MM-YYYY.csv`.
-    - **Press 'q'** to quit the application.
+2. **Launch Application:**
+   Open the terminal in VS Code and run:
+   ```bash
+   python gui_app.py
+   ```
+   *OR simply press **F5** in VS Code!*
 
-## Project Structure
+3. **Operation:**
+   - Click **"Start Scanner"** to begin real-time detection.
+   - Click **"Export PDF Report"** to save today's attendance log as a professional PDF.
+
+## 📂 Project Structure
 
 ```text
 Face-Recognition-Attendance-System/
-├── faces/                   # Directory containing reference images
-│   ├── shejan.jpg
-│   └── tarikul.jpg
-├── face_recognition_models/  # (Optional) Pre-trained models
-├── main.py                  # Core application logic
+├── .vscode/                 # VS Code configurations (F5 to run)
+├── backup/                  # Original script backup
+├── faces/                   # Reference student images
+├── face_recognition_handler.py # Core recognition logic & PDF generation
+├── gui_app.py               # Modern CustomTkinter GUI application
 ├── LICENSE                  # MIT License
 └── README.md                # Project documentation
 ```
 
-## How It Works
-
-1.  **Loading:** The system loads images from the `faces/` directory and generates face encodings (128-dimensional vectors) for each.
-2.  **Detection:** The webcam captures frames, which are then resized and converted to RGB.
-3.  **Matching:** Detected face encodings from the live stream are compared against the known encodings using Euclidean distance.
-4.  **Logging:** If a match is found and the person hasn't been marked present yet, their name and current time are written to the daily CSV file.
-
-## License
+## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 🤝 Acknowledgments
 
-- [face_recognition library](https://github.com/ageitgey/face_recognition) by Adam Geitgey.
-- [OpenCV](https://opencv.org/) for computer vision processing.
+- [face_recognition](https://github.com/ageitgey/face_recognition) - The world's simplest face recognition API.
+- [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) - Modern UI library for Python.
+- [OpenCV](https://opencv.org/) - Comprehensive computer vision tools.
